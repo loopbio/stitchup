@@ -15,6 +15,15 @@ It is based on a modified version of the OpenCV [stitcher](https://docs.opencv.o
    * multi-band blending disabled (introduces blurring)
    * minimal/no exposure compensation
 
+## Operation
+
+ * You need to load the stitcher with a calibration
+   * to load a 'calibraion' from images, do `ok = load_calibration(*sorted_imgs)`
+ * When stitching multiple images from the loaded calibration call `ok, img = s.stitch_images(*sorted_imgs)`
+   * the images  **must be passed in the same order** as when calibrated. For example, if sorted_imgs 
+     is a list (top_left,top_right,bottom_left,bottom_right) then this order must be preserved
+     between the `load_calibration` and the `stitch_images` call
+
 ##### Installation
 
  * `conda env create -f environment.yaml`
@@ -23,11 +32,11 @@ It is based on a modified version of the OpenCV [stitcher](https://docs.opencv.o
 
 ##### Notes
 
-* Images/videos should be undistorted before stitching.
-* Alignment should be done using images with overlapping features (see `demo.py`)
-* When developing (working on c++ at least)
-  * `pip uninstall stitchup`
-  * ... edit code ...
-  * `make cython-inplace`
-  * ... test ...
+ * Images/videos should be undistorted before stitching.
+ * Alignment should be done using images with overlapping features (see `demo.py`)
+ * When developing (working on c++ at least)
+   * `pip uninstall stitchup`
+   * ... edit code ...
+   * `make cython-inplace`
+   * ... test ...
 

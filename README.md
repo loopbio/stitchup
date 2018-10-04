@@ -15,7 +15,19 @@ It is based on a modified version of the OpenCV [stitcher](https://docs.opencv.o
    * multi-band blending disabled (introduces blurring)
    * minimal/no exposure compensation
 
+##### Installation
+
+ * `conda env create -f environment.yaml`
+ * `conda activate stitchup`
+ * `python demo.py`
+
 ##### Notes
 
 * Images/videos should be undistorted before stitching.
+* Alignment should be done using images with overlapping features (see `demo.py`)
+* When developing (working on c++ at least)
+  * `pip uninstall stitchup`
+  * ... edit code ...
+  * `make cython-inplace`
+  * ... test ...
 

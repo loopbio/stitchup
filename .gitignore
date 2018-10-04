@@ -1,0 +1,8 @@
+*.pyc
+*.so
+build
+dist
+stitchup.egg-info/
+stitchup/lib/cvt.cpp
+stitchup/lib/stitch.cpp
+

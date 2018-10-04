@@ -5,7 +5,6 @@ import numpy as np
 
 
 class StoreAligner(object):
-
     MISSING_POLICY_DROP = 'drop'
     MISSING_POLICY_HOLD = 'zoh'
     MISSING_POLICY_BLACK = 'black'

@@ -3,10 +3,8 @@ import subprocess
 import cv2
 import numpy as np
 
-
-WINDOW_NORMAL = getattr(cv2,'WINDOW_NORMAL',0)
-WINDOW_AUTOSIZE = getattr(cv2,'WINDOW_AUTOSIZE',1)
-
+WINDOW_NORMAL = getattr(cv2, 'WINDOW_NORMAL', 0)
+WINDOW_AUTOSIZE = getattr(cv2, 'WINDOW_AUTOSIZE', 1)
 
 _SCREEN_RESOLUTION = None
 
@@ -50,7 +48,6 @@ def get_and_parse_screen_resolution(scale=1.0, default=(1024, 768)):
     return int(w), int(h)
 
 
-
 def new_window(name, size=None, expanded_ui=True, shape=None):
     if shape is not None:
         size = shape[1], shape[0]
@@ -88,5 +85,3 @@ def new_window(name, size=None, expanded_ui=True, shape=None):
         sizestr = 'auto'
 
     return name, sizestr
-
-

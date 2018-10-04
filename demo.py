@@ -1,18 +1,6 @@
-import os.path as op
-import re
-import glob
-import itertools
-import functools
-import subprocess
-
 import cv2
-import numpy as np
-import pandas as pd
 
-from imgstore import new_for_filename, new_for_format
-from imgstore.util import ensure_color
-
-from stitchup import Stitcher, StoreAligner, new_window
+from stitchup import Stitcher, new_window
 
 
 s = Stitcher(use_gpu=True,
@@ -20,8 +8,8 @@ s = Stitcher(use_gpu=True,
              matcher_type="affine",
              warp_type="plane")
 
-#s.enable_exposure_compensation('gain')
-#s.enable_seam_finding('gc_color')
+# s.enable_exposure_compensation('gain')
+# s.enable_seam_finding('gc_color')
 
 TL = 'imgs/TL.jpg'
 TR = 'imgs/TR.jpg'

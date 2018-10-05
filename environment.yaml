@@ -8,7 +8,7 @@ channels:
 dependencies:
   - conda-forge::python=2.7
   - loopbio::ffmpeg=4.0.2=nonvidia_gpl*
-  - loopbio::opencv=3.4.2
+  - loopbio::opencv=3.4.3=*h6df427c*
 
   - python-dateutil
   - pytz

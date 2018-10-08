@@ -5,7 +5,7 @@ namespace lb {
 
 SimpleStitcher::SimpleStitcher(bool use_gpu,
                                std::string estimator_type, std::string matcher_type, std::string warp_type) :
-    use_gpu_(use_gpu),
+    use_gpu_(false),
     pano_width_(-1),
     pano_height_(-1),
     stitcher_(cv::Stitcher2::create(estimator_type == "homography" ?
@@ -14,7 +14,8 @@ SimpleStitcher::SimpleStitcher(bool use_gpu,
 
     float match_conf = 0.3;
 
-#ifdef HAVE_OPENCV_CUDALEGACY
+//#ifdef HAVE_OPENCV_CUDALEGACY
+#if 0
     if (use_gpu_)
     {
         stitcher_->setFeaturesFinder(cv::makePtr<cv::detail::SurfFeaturesFinderGpu>());
@@ -52,7 +53,8 @@ SimpleStitcher::SimpleStitcher(bool use_gpu,
     stitcher_->setBundleAdjuster(adjuster);
 
     cv::Ptr<cv::WarperCreator> warper_creator;
-#ifdef HAVE_OPENCV_CUDAWARPING
+//#ifdef HAVE_OPENCV_CUDAWARPING
+#if 0
     if (use_gpu_ && cv::cuda::getCudaEnabledDeviceCount() > 0)
     {
         if (warp_type == "plane")
@@ -144,8 +146,9 @@ void SimpleStitcher::enable_seam_finding(std::string seam_find_type, float resol
         seam_finder = cv::makePtr<cv::detail::VoronoiSeamFinder>();
     else if (seam_find_type == "gc_color")
     {
-#ifdef HAVE_OPENCV_CUDALEGACY
-        if (use_gpu_ && cuda::getCudaEnabledDeviceCount() > 0)
+//#ifdef HAVE_OPENCV_CUDALEGACY
+#if 0
+        if (use_gpu_ && cv::cuda::getCudaEnabledDeviceCount() > 0)
             seam_finder = cv::makePtr<cv::detail::GraphCutSeamFinderGpu>(cv::detail::GraphCutSeamFinderBase::COST_COLOR);
         else
 #endif
@@ -153,8 +156,9 @@ void SimpleStitcher::enable_seam_finding(std::string seam_find_type, float resol
     }
     else if (seam_find_type == "gc_colorgrad")
     {
-#ifdef HAVE_OPENCV_CUDALEGACY
-        if (use_gpu_ && cuda::getCudaEnabledDeviceCount() > 0)
+//#ifdef HAVE_OPENCV_CUDALEGACY
+#if 0
+        if (use_gpu_ && cv::cuda::getCudaEnabledDeviceCount() > 0)
             seam_finder = cv::makePtr<cv::detail::GraphCutSeamFinderGpu>(cv::detail::GraphCutSeamFinderBase::COST_COLOR_GRAD);
         else
 #endif

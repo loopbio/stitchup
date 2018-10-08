@@ -28,9 +28,14 @@ It is based on a modified version of the OpenCV [stitcher](https://docs.opencv.o
 
  * `conda env create -f environment.yaml`
  * `conda activate stitchup`
- * `python demo.py`
+ * `python setup.py install`
+ * `cd demo; python demo.py`
+
+note: be careful running code from within the source directory as python will preferentially
+import from the `stitchup` directory. See notes below re: `make cython-implace`
 
 ##### Notes
+
 
  * Images/videos should be undistorted before stitching.
  * Alignment should be done using images with overlapping features (see `demo.py`)

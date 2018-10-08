@@ -7,7 +7,7 @@ clean-pyc:
 	find . -name '*~' -exec rm --force  {} +
 	find . -name __pycache__ -exec rm -rf  {} +
 
-clean: clean-pyc
+clean: clean-pyc clean-cython
 	rm -rf build dist
 	rm -rf *.egg-info
 

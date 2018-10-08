@@ -33,4 +33,4 @@ dependencies:
 
   - pip:
     - imgstore>=0.2.0
-    - "--editable=./"
+

@@ -50,5 +50,6 @@ setup(
     author='John Stowers',
     author_email='john.stowers@gmail.com',
     cmdclass = {'build_ext': build_ext},
+    packages=['stitchup', 'stitchup.lib'],
     ext_modules = ext_modules,
 )

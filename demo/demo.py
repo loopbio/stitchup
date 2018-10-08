@@ -11,10 +11,10 @@ s = Stitcher(use_gpu=True,
 # s.enable_exposure_compensation('gain')
 # s.enable_seam_finding('gc_color')
 
-TL = 'imgs/TL.jpg'
-TR = 'imgs/TR.jpg'
-BL = 'imgs/BL.jpg'
-BR = 'imgs/BR.jpg'
+TL = '../imgs/TL.jpg'
+TR = '../imgs/TR.jpg'
+BL = '../imgs/BL.jpg'
+BR = '../imgs/BR.jpg'
 sorted_imgs = [cv2.imread(TL), cv2.imread(TR), cv2.imread(BL), cv2.imread(BR)]
 
 ok = s.load_calibration(*sorted_imgs)

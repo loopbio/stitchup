@@ -54,4 +54,8 @@ class StoreAligner(object):
                         imgs.append(black_img)
                     else:
                         continue
+
+            if len(imgs) != len(self._stores):
+                continue
+
             yield fn, imgs

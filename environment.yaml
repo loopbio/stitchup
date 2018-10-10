@@ -28,6 +28,7 @@ dependencies:
 #  - pytest-cov
 #  - pytest-pep8
 
+  - gcc=4.8
   - conda-forge::cython=0.28.2
   - conda-forge::pkg-config
 

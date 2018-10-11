@@ -541,6 +541,7 @@ Stitcher2::Status Stitcher2::matchImages()
     for (size_t i = 0; i < indices_.size(); ++i)
     {
         imgs_subset.push_back(imgs_[indices_[i]]);
+        LOGLN("Matched Image Index: " << indices_[i]);
         seam_est_imgs_subset.push_back(seam_est_imgs_[indices_[i]]);
         full_img_sizes_subset.push_back(full_img_sizes_[indices_[i]]);
     }
@@ -553,6 +554,8 @@ Stitcher2::Status Stitcher2::matchImages()
         LOGLN("Need more images");
         return ERR_NEED_MORE_IMGS;
     }
+
+    LOGLN("Panorama composed of " << (int)imgs_.size() << " images");
 
     return OK;
 }

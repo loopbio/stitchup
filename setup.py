@@ -1,6 +1,8 @@
 from Cython.Distutils import build_ext
 from Cython.Build import cythonize
-from distutils.core import setup, Extension
+
+from setuptools import setup, find_packages
+from setuptools.extension import Extension
 
 import numpy
 import subprocess
